@@ -1,12 +1,13 @@
 package cs1410;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * A collection of methods for the second assignment of CS 1410.
  * 
- * @author Morgan Mischo
+ * @author Morgan Mischo and Joe Zachary
  */
 public class MethodLibrary
 {
@@ -41,17 +42,8 @@ public class MethodLibrary
      */
     public static boolean isVowel (char c)
     {
-
-        if (c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'i' || c == 'I' || c == 'o' || c == 'O' || c == 'u'
-                || c == 'U')
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
+        return (c == 'a') || (c == 'A') || (c == 'e') || (c == 'E') || (c == 'i') || (c == 'I') || (c == 'o') || (c == 'O') || (c == 'u')
+                || (c == 'U'); 
     }
 
     /**
@@ -64,14 +56,7 @@ public class MethodLibrary
     public static boolean isMultipleOf (int number, int factor1, int factor2)
     {
 
-        if (number % factor1 == 0 && number % factor2 == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (number % factor1 == 0) && (number % factor2 == 0); 
     }
 
     /**
@@ -151,14 +136,7 @@ public class MethodLibrary
         String first = s1.substring(a);
         String second = s2.substring(b);
 
-        if (first.equals(second))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (first.equals(second)); 
     }
 
     /**
@@ -173,24 +151,20 @@ public class MethodLibrary
      */
     public static int largestOfFive (String integerList)
     {
+        //Not sure if we had learned about arrays yet, but I'm not entirely sure how else I could solve this
         sc = new Scanner(integerList);
-
-        int nextOne = sc.nextInt();
-
-        int oldOne = 0;
-        int newOne = 0;
-
-        if (nextOne > oldOne)
-        {
-            newOne = nextOne;
-            sc.nextInt();
-        }
-        else
-        {
-            newOne = oldOne;
-            sc.nextInt();
-        }
-        return newOne;
+        
+        int[] myArray = new int[5];  
+        
+        myArray[0] = sc.nextInt(); 
+        myArray[1] = sc.nextInt(); 
+        myArray[2] = sc.nextInt(); 
+        myArray[3] = sc.nextInt(); 
+        myArray[4] = sc.nextInt(); 
+        
+        Arrays.sort(myArray); 
+        
+        return myArray[4]; 
     }
 
     /**
@@ -218,23 +192,7 @@ public class MethodLibrary
         String day2 = date2.substring(3, 5);
         int dayComparison = day.compareTo(day2);
 
-        if (yearComparison < 0)
-        {
-            return true;
-        }
-        else if (monthComparison < 0 && yearComparison == 0)
-        {
-            return true;
-        }
-        else if (yearComparison == 0 && dayComparison < 0)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
+        return (yearComparison < 0) || (monthComparison < 0 && yearComparison == 0) || (yearComparison == 0 && dayComparison < 0); 
     }
 
     /**
